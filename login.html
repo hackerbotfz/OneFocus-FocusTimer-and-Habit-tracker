@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OneFocus - Pomodoro & Habit Tracker</title>
+    <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OneFocus</h1>
+            <p class="tagline">Focus. Build. Track.</p>
+        </header>
+
+        <main>
+            <section class="pomodoro-section">
+                <div class="timer-container">
+                    <svg class="progress-ring" width="280" height="280">
+                        <circle
+                            class="progress-ring-circle-bg"
+                            stroke="#e0e0e0"
+                            stroke-width="8"
+                            fill="transparent"
+                            r="130"
+                            cx="140"
+                            cy="140"
+                        />
+                        <circle
+                            class="progress-ring-circle"
+                            stroke="#4CAF50"
+                            stroke-width="8"
+                            fill="transparent"
+                            r="130"
+                            cx="143"
+                            cy="140"
+                        />
+                    </svg>
+                    <div class="timer-display">
+                        <div class="time" id="timer">25:00</div>
+                        <div class="session-type" id="sessionType">Work Session</div>
+                        <div class="session-count">Sessions: <span id="sessionCount">0</span></div>
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="startBtn" class="btn btn-primary">Start</button>
+                    <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+                    <button id="resetBtn" class="btn btn-tertiary">Reset</button>
+                    <button id="settingsBtn" class="btn btn-tertiary" title="Settings">Settings</button>
+                </div>
+
+                <div class="keyboard-hints">
+                    <span>Space: Start/Pause</span>
+                    <span>R: Reset</span>
+                </div>
+            </section>
+
+            <section class="tasks-section">
+                <h2>Tasks</h2>
+
+                <div class="add-habit-form add-task-form">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="Add a task..."
+                        maxlength="100"
+                    >
+                    <button id="addTaskBtn" class="btn btn-primary">Add Task</button>
+                </div>
+
+                <div id="tasksList" class="habits-list"></div>
+
+                <div id="tasksEmptyState" class="empty-state">
+                    <p>No tasks yet. Add your first task above!</p>
+                </div>
+            </section>
+
+            <section class="habits-section">
+                <h2>Habit Streak Tracker</h2>
+
+                <div class="add-habit-form">
+                    <input 
+                        type="text" 
+                        id="habitInput" 
+                        placeholder="Enter a new habit..."
+                        maxlength="50"
+                    >
+                    <button id="addHabitBtn" class="btn btn-primary">Add Habit</button>
+                </div>
+
+                <div id="habitsList" class="habits-list"></div>
+
+                <div id="emptyState" class="empty-state">
+                    <p>No habits yet. Add your first habit above!</p>
+                </div>
+            </section>
+
+            <section class="spotify-section">
+                <h2>Focus Music</h2>
+
+                <div class="spotify-controls add-habit-form" aria-label="Spotify playlist controls">
+                    <input
+                        type="text"
+                        id="spotifyInput"
+                        placeholder="Paste Spotify playlist URL or share link..."
+                        maxlength="400"
+                    />
+                    <button id="updatePlaylistBtn" class="btn btn-primary">Update playlist</button>
+                </div>
+
+                <div id="spotifyMessage" class="spotify-message" aria-live="polite"></div>
+
+                <div class="spotify-player">
+                    <iframe id="spotifyIframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXc8kgYqQLMfH?utm_source=generator"
+                        width="100%" height="380" frameBorder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                    </iframe>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built for productivity enthusiasts</p>
+        </footer>
+    </div>
+
+    <!-- Settings Modal-->
+    <div id="settingsOverlay" class="modal-overlay hidden" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+            <button id="closeSettings" class="modal-close" aria-label="Close settings">&times;</button>
+            <h3 id="settingsTitle">Pomodoro Settings</h3>
+
+            <div class="modal-body">
+                <label for="workDurationInput">Work duration (minutes)</label>
+                <input id="workDurationInput" type="number" min="1" step="1" />
+
+                <label for="breakDurationInput">Break duration (minutes)</label>
+                <input id="breakDurationInput" type="number" min="1" step="1" />
+            </div>
+
+            <div class="modal-actions">
+                <button id="saveSettings" class="btn btn-primary">Save</button>
+                <button id="cancelSettings" class="btn btn-tertiary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
