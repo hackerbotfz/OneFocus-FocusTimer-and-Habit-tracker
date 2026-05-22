@@ -90,6 +90,6 @@ OneFocus/
 └── README.md
 ```
 
-## License
+## Copyright
 
-© Faiz Lawan.
+© Faiz Lawan. All rights reserved.
