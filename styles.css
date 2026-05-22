@@ -17,17 +17,15 @@
     --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.30);
 }
 
-/* Use the provided image as the page background with a dark overlay for readability.
-   Place the image file (istockphoto-1373178055-640x640.jpg) in the same directory as login.html */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     min-height: 100vh;
     padding: 20px;
     color: var(--text-dark);
-    background-color: #0b0f12; /* fallback */
+    background-color: #0b0f12;
     background-image:
         linear-gradient(rgba(2,8,12,0.55), rgba(2,8,12,0.55)),
-        url('istockphoto-1373178055-640x640.jpg');
+        url('assets/background.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -312,6 +310,16 @@ footer {
     opacity: 0.95;
     font-size: 0.95rem;
     text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+footer a:hover {
+    opacity: 0.85;
 }
 
 /* Modal (settings) */

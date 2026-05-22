@@ -197,7 +197,7 @@ class PomodoroTimer {
     /* ---------- Settings (localStorage) ---------- */
 
     settingsStorageKey() {
-        return 'focusflow-settings';
+        return 'onefocus-settings';
     }
 
     loadSettings() {
@@ -299,7 +299,7 @@ class HabitTracker {
     }
 
     loadHabits() {
-        const saved = localStorage.getItem('focusflow-habits');
+        const saved = localStorage.getItem('onefocus-habits');
         if (saved) {
             const habits = JSON.parse(saved);
             return habits.map(habit => {
@@ -319,7 +319,7 @@ class HabitTracker {
     }
 
     saveHabits() {
-        localStorage.setItem('focusflow-habits', JSON.stringify(this.habits));
+        localStorage.setItem('onefocus-habits', JSON.stringify(this.habits));
     }
 
     addHabit() {
@@ -437,7 +437,7 @@ class HabitTracker {
 /*Spotify embed manager*/
 class SpotifyEmbedManager {
     constructor() {
-        this.storageKey = 'focusflow-spotify-playlist-id';
+        this.storageKey = 'onefocus-spotify-playlist-id';
         this.input = document.getElementById('spotifyInput');
         this.updateBtn = document.getElementById('updatePlaylistBtn');
         this.iframe = document.getElementById('spotifyIframe');
@@ -546,7 +546,7 @@ class SpotifyEmbedManager {
 
 class TaskList {
     constructor() {
-        this.storageKey = 'focusflow-tasks';
+        this.storageKey = 'onefocus-tasks';
         this.tasks = this.loadTasks();
         this.initElements();
         this.initEventListeners();
